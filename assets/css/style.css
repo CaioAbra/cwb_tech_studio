@@ -1,0 +1,782 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Montserrat";
+  src: local("☺"), url("../fonts/Montserrat-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: local("☺"), url("../fonts/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: local("☺"), url("../fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: local("☺"), url("../fonts/Montserrat-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.f-bold {
+  font-weight: 700;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+body {
+  background-color: #0c0c0c;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  max-height: 100vh;
+  overflow-y: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+div.perspective {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+div.perspective div.ship div.viewport {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  box-shadow: 0 0 45px 5px rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+div.perspective div.ship div.viewport.miniatura {
+  transform-origin: left;
+}
+div.perspective div.ship div.viewport div.container {
+  position: relative;
+  max-width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+div.perspective div.ship div.viewport div.container header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 4.375rem;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+div.perspective div.ship div.viewport div.container header .menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+div.perspective div.ship div.viewport div.container header .menu-toggle span {
+  width: 100%;
+  height: 0.125rem;
+  background-color: #fff;
+  margin-bottom: 0.25rem;
+  transition: background-color 0.3s ease-in-out;
+}
+div.perspective div.ship div.viewport div.container header .menu-toggle span:nth-child(2) {
+  width: 60%;
+}
+div.perspective div.ship div.viewport div.container header button.header-cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 20px;
+  line-height: 30px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #2653c4;
+  border: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-in-out, visibility 0s 0.4s;
+  cursor: pointer;
+}
+div.perspective div.ship div.viewport div.container header button.header-cta.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+div.perspective div.ship div.viewport div.container div nav.l-side-nav {
+  position: absolute;
+  left: 0;
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+div.perspective div.ship div.viewport div.container div nav.l-side-nav::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 0.125rem;
+  height: 70%;
+  max-height: 46.875rem;
+  background-color: #555;
+  opacity: 0.35;
+  z-index: 10;
+}
+div.perspective div.ship div.viewport div.container div nav.l-side-nav ul.side-nav {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 6.25rem;
+  height: 70%;
+  max-height: 46.875rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+  z-index: 10;
+}
+div.perspective div.ship div.viewport div.container div nav.l-side-nav ul.side-nav li {
+  position: relative;
+  top: -0.3125rem;
+  color: #fff;
+  font-size: 0.375rem;
+  cursor: pointer;
+}
+div.perspective div.ship div.viewport div.container div nav.l-side-nav ul.side-nav li span {
+  position: relative;
+  top: 0.1875rem;
+  left: 0.625rem;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 300;
+  opacity: 0;
+  visibility: hidden;
+}
+div.perspective div.ship div.viewport div.container div nav.l-side-nav ul.side-nav li::before {
+  position: absolute;
+  top: 0.1875rem;
+  left: 0.625rem;
+  color: #555;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+div.perspective div.ship div.viewport div.container div nav.l-side-nav ul.side-nav li:nth-child(1)::before {
+  content: "01";
+}
+div.perspective div.ship div.viewport div.container div nav.l-side-nav ul.side-nav li:nth-child(2)::before {
+  content: "02";
+}
+div.perspective div.ship div.viewport div.container div nav.l-side-nav ul.side-nav li:nth-child(3)::before {
+  content: "03";
+}
+div.perspective div.ship div.viewport div.container div nav.l-side-nav ul.side-nav li:nth-child(4)::before {
+  content: "04";
+}
+div.perspective div.ship div.viewport div.container div nav.l-side-nav ul.side-nav li:nth-child(5)::before {
+  content: "05";
+}
+div.perspective div.ship div.viewport div.container div nav.l-side-nav ul.side-nav li.is-active {
+  color: #2653c4;
+  -webkit-transition: color 0.4s ease-in-out;
+  transition: color 0.4s ease-in-out;
+  -moz-transition: color 0.4s ease-in-out;
+  -ms-transition: color 0.4s ease-in-out;
+  -o-transition: color 0.4s ease-in-out;
+}
+div.perspective div.ship div.viewport div.container div nav.l-side-nav ul.side-nav li.is-active::before {
+  left: -33px;
+  color: #fff;
+}
+div.perspective div.ship div.viewport div.container div nav.l-side-nav ul.side-nav li.is-active span {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+  -moz-transition: opacity 0.4s ease-in-out;
+  -ms-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
+}
+@media (max-width: 1024px) {
+  div.perspective div.ship div.viewport div.container div nav.l-side-nav {
+    display: none;
+  }
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-in-out, visibility 0s 0.4s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section.section-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  transition: opacity 0.4s ease-in-out 0.4s;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home {
+  position: relative;
+  display: flex;
+  width: 56.25rem;
+  max-width: 75%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+@media (max-width: 1180px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home {
+    max-width: 100%;
+  }
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner {
+  position: relative;
+  height: 29.6875rem;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner::before {
+  content: "";
+  position: absolute;
+  bottom: 1.25rem;
+  left: -0.9375rem;
+  right: 0;
+  height: 0.125rem;
+  background-color: #282828;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner::after {
+  content: "";
+  position: absolute;
+  bottom: 1.125rem;
+  left: 0;
+  width: 1.875rem;
+  height: 0.25rem;
+  background-color: #2653c4;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner h1 {
+  position: relative;
+  font-size: 4.25rem;
+  font-weight: 900;
+  line-height: 1;
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner h1 {
+    font-size: 3.4375rem;
+  }
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner button {
+  position: relative;
+  padding: 0.5rem 1.0625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  background-color: #2653c4;
+  color: #fff;
+  transition: all 0.8s;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner button svg {
+  position: relative;
+  left: 0.3125rem;
+  width: 0.9375rem;
+  fill: #fff;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner button:hover {
+  transform: scale(0.9);
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner img {
+  position: absolute;
+  bottom: 1.3125rem;
+  right: -0.75rem;
+}
+@media (max-width: 767px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner img {
+    display: none;
+  }
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeOptions {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (max-width: 767px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeOptions {
+    display: block;
+  }
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeOptions:hover {
+  color: #2653c4;
+  cursor: pointer;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeOptions a {
+  max-width: 15.625rem;
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.2s ease-in-out;
+}
+@media (max-width: 767px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeOptions a {
+    display: block;
+    max-width: 100%;
+    margin: 0 0 30px 0;
+  }
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeOptions a:last-child {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 900px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeOptions a {
+    margin-right: 1.875rem;
+  }
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeOptions a:hover {
+  color: #2653c4;
+  cursor: pointer;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeOptions h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos {
+  position: relative;
+  display: flex;
+  width: 56.25rem;
+  max-width: 75%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+@media (max-width: 1180px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos {
+    max-width: 100%;
+  }
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos h2 {
+  margin: 0 0 1.25rem 0;
+  font-size: 1.875rem;
+  text-align: center;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel {
+  position: relative;
+  overflow: hidden;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .carousel-items {
+  position: relative;
+  display: flex;
+  max-width: 80% !important;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+  min-height: 40vh;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .carousel-items .item {
+  position: relative;
+  flex: 0 0 33.33%;
+  max-width: 33.33%;
+  margin: 0 10px;
+  text-align: center;
+  transition: transform 0.5s ease;
+  transform: scale(0.8);
+  top: 1.875rem;
+  display: block;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .carousel-items .item img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .carousel-items .item h3 {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .carousel-items .item div.description-container {
+  column-count: 2;
+  column-gap: 0;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .carousel-items .item p.description {
+  max-width: 250px;
+  margin: 0 auto;
+  display: none;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .carousel-items .active {
+  transform: scale(1.2);
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .carousel-items .active p.description {
+  display: block;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .slider-prev,
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .slider-next {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  background-color: #282828;
+  border-radius: 50%;
+  cursor: pointer;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .slider-prev svg,
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .slider-next svg {
+  width: 1.25rem;
+  fill: #fff;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .slider-prev {
+  left: 0;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .slider-next {
+  right: 0;
+}
+@media screen and (max-width: 500px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .carousel-items {
+    min-height: 50vh;
+  }
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .carousel-items .item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media screen and (min-width: 501px) and (max-width: 768px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .carousel-items {
+    min-height: 55vh;
+  }
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .carousel-items .item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .carousel-items {
+    min-height: 50vh;
+  }
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos div.carousel .carousel-items .item {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#sobreNos {
+  position: relative;
+  display: flex;
+  width: 56.25rem;
+  max-width: 75%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#sobreNos div.efeitoSobreNos {
+  position: relative;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#sobreNos div.efeitoSobreNos::before {
+  content: "";
+  position: absolute;
+  top: 0rem;
+  left: 12.5rem;
+  transform: rotate(-25deg);
+  border: 0.3125rem solid #2653c4;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  z-index: 10;
+}
+@media (max-width: 500px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#sobreNos div.efeitoSobreNos::before {
+    left: 0rem;
+  }
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#sobreNos div.efeitoSobreNos::after {
+  content: "";
+  position: absolute;
+  top: 3rem;
+  left: 25rem;
+  transform: rotate(45deg);
+  width: 0.625rem;
+  height: 0.625rem;
+  background-color: #2653c4;
+  z-index: 10;
+}
+@media (max-width: 500px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#sobreNos div.efeitoSobreNos::after {
+    left: 10rem;
+  }
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#sobreNos h2 {
+  position: relative;
+  margin-top: 85px;
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1;
+  z-index: 1;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#sobreNos h2::before {
+  content: "";
+  position: absolute;
+  top: 60px;
+  left: 16.75rem;
+  width: 30px;
+  height: 30px;
+  background-color: #2653c4;
+  border-radius: 50%;
+}
+@media (max-width: 500px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#sobreNos h2::before {
+    left: 10rem;
+  }
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#sobreNos h2::after {
+  content: "";
+  position: absolute;
+  top: 255px;
+  left: 255px;
+  width: 10px;
+  height: 10px;
+  background-color: #2653c4;
+}
+@media (max-width: 500px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#sobreNos h2::after {
+    top: 10rem;
+    left: 1rem;
+  }
+}
+@media (max-width: 500px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#sobreNos h2 {
+    font-size: 8vw;
+    max-width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#sobreNos h2 {
+    font-size: 3.5rem;
+    margin-top: 60px;
+  }
+}
+@media (min-width: 1100px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#sobreNos h2 {
+    font-size: 4.25rem;
+    margin-top: 60px;
+  }
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato {
+  position: relative;
+  display: flex;
+  width: 56.25rem;
+  max-width: 75%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  margin-right: 0;
+}
+@media (max-width: 1180px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato {
+    max-width: 100%;
+  }
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato div.bg-map {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/background_map.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato div.form {
+  z-index: 1;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato div.form .modalForm {
+  padding: 45px 45px;
+  background-color: #0c0c0c;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.75);
+  max-width: 32rem;
+  float: right;
+  margin: auto;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato div.form .modalForm p {
+  display: block;
+  margin: 14px 0;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato div.form .modalForm form#email_form div input[type=text],
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato div.form .modalForm form#email_form div input[type=email] {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid rgb(255, 255, 255);
+  background-color: #282828;
+  max-width: -webkit-fill-available;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.3rem 1rem;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato div.form .modalForm form#email_form div input[type=text]:focus,
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato div.form .modalForm form#email_form div input[type=email]:focus {
+  outline: none;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato div.form .modalForm form#email_form div textarea {
+  border: none;
+  background-color: #282828;
+  width: 100%;
+  max-width: -webkit-fill-available;
+  min-height: 4rem;
+  color: #fff;
+  padding: 0.3rem 1rem;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato div.form .modalForm form#email_form div textarea:focus {
+  outline: none;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato div.form .modalForm form#email_form div input[type=submit] {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border: none;
+  border-bottom: 2px solid rgb(255, 255, 255);
+  border-top: 2px solid rgb(255, 255, 255);
+  border-left: 2px solid rgb(255, 255, 255);
+  border-right: 2px solid rgb(255, 255, 255);
+  background-color: #282828;
+  width: 100%;
+  max-width: -webkit-fill-available;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.8s;
+}
+div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato div.form .modalForm form#email_form div input[type=submit]:hover {
+  transform: scale(0.9);
+}
+div.perspective div.ship div.containerList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+div.perspective div.ship div.containerList ul {
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+div.perspective div.ship div.containerList ul li {
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+}
+div.perspective div.ship div.containerList ul li span {
+  font-size: 3.4rem;
+  font-weight: 900;
+  position: relative;
+  display: inline-block;
+}
+div.perspective div.ship div.containerList ul li.is-active span::before {
+  opacity: 1;
+  content: "";
+  position: absolute;
+  top: 55%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 1rem;
+  background-color: #2653c4;
+  z-index: 1;
+}
+
+.estrelas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.estrela {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: estrela-animation infinite;
+  z-index: 0;
+}
+
+.btn-whatsApp {
+  right: 25px;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  z-index: 100;
+  transition: all 0.8s;
+}
+.btn-whatsApp:hover {
+  transform: scale(0.8);
+}
+
+@keyframes estrela-animation {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
