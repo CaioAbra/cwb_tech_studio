@@ -31,9 +31,7 @@
                             <span></span>
                             <span></span>
                         </div>
-
-
-                        <button class="header-cta">CWB TECH STUDIO</button>
+                        <button class="header-cta">CWB TECH</button>
                     </header>
 
                     <div>
@@ -50,7 +48,7 @@
                             <li class="section section-active">
                                 <div id="home">
                                     <div class="homeBanner">
-                                        <h1>CWB TECH STUDIO</h1>
+                                        <h1>CWB TECH</h1>
 
                                         <button class="cta">ENTRE EM CONTATO
                                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
@@ -62,7 +60,7 @@
 
                                         </button>
 
-                                        <img src="assets/img/introduction-visual.png" alt="Welcome">
+                                        <img class="astronaut" src="./assets/img/introduction-visual(1).png" alt="Welcome">
                                     </div>
                                     <div class="homeOptions">
                                         <a>

@@ -1,4 +1,26 @@
 @charset "UTF-8";
+body,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  max-width: 100vw;
+  height: 100%;
+  max-height: 100vh;
+  background-color: #0c0c0c;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  overflow-y: hidden;
+}
+
 @font-face {
   font-family: "Montserrat";
   src: local("☺"), url("../fonts/Montserrat-Black.ttf") format("truetype");
@@ -36,28 +58,21 @@ a {
   cursor: pointer;
 }
 
-body {
-  background-color: #0c0c0c;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  font-family: "Montserrat", sans-serif;
-  color: #fff;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-  max-height: 100vh;
-  overflow-y: hidden;
-  margin: 0;
-  padding: 0;
-}
-
 div.perspective {
-  position: relative;
   width: 100%;
+  max-width: 100vw;
   height: 100%;
+  max-height: 100vh;
   overflow: hidden;
 }
+div.perspective div.ship {
+  width: 100%;
+  max-width: 100vw;
+  height: 100%;
+  overflow: hidden;
+  max-height: 100vh;
+}
 div.perspective div.ship div.viewport {
-  position: relative;
   width: 100%;
   height: 100vh;
   box-shadow: 0 0 45px 5px rgba(0, 0, 0, 0.85);
@@ -68,15 +83,14 @@ div.perspective div.ship div.viewport.miniatura {
   transform-origin: left;
 }
 div.perspective div.ship div.viewport div.container {
-  position: relative;
-  max-width: 90%;
-  height: 100%;
+  max-width: 90vw;
+  width: 100%;
   margin: 0 auto;
+  height: 100%;
+  max-height: 100vh;
 }
 div.perspective div.ship div.viewport div.container header {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   display: flex;
   width: 100%;
   height: 4.375rem;
@@ -127,7 +141,6 @@ div.perspective div.ship div.viewport div.container header button.header-cta.is-
 }
 div.perspective div.ship div.viewport div.container div nav.l-side-nav {
   position: absolute;
-  left: 0;
   display: flex;
   height: 100%;
   align-items: center;
@@ -236,9 +249,9 @@ div.perspective div.ship div.viewport div.container div nav.l-side-nav ul.side-n
 }
 div.perspective div.ship div.viewport div.container div ul#space.main-content {
   width: 100%;
+  max-width: 100vw;
   height: 100%;
-  margin: 0;
-  padding: 0;
+  max-height: 100vh;
   list-style: none;
 }
 div.perspective div.ship div.viewport div.container div ul#space.main-content li.section {
@@ -265,11 +278,6 @@ div.perspective div.ship div.viewport div.container div ul#space.main-content li
   justify-content: center;
   margin: 0 auto;
 }
-@media (max-width: 1180px) {
-  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home {
-    max-width: 100%;
-  }
-}
 div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner {
   position: relative;
   height: 29.6875rem;
@@ -294,10 +302,11 @@ div.perspective div.ship div.viewport div.container div ul#space.main-content li
 }
 div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner h1 {
   position: relative;
-  font-size: 4.25rem;
+  font-size: 5.625rem;
   font-weight: 900;
   line-height: 1;
   z-index: 1;
+  margin: 0.67em 0;
 }
 @media (max-width: 768px) {
   div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner h1 {
@@ -327,10 +336,16 @@ div.perspective div.ship div.viewport div.container div ul#space.main-content li
   position: absolute;
   bottom: 1.3125rem;
   right: -0.75rem;
+  width: 50% !important;
 }
 @media (max-width: 767px) {
   div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner img {
     display: none;
+  }
+}
+@media (min-width: 1000px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeBanner img {
+    right: -6rem;
   }
 }
 div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#home .homeOptions {
@@ -387,11 +402,6 @@ div.perspective div.ship div.viewport div.container div ul#space.main-content li
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-}
-@media (max-width: 1180px) {
-  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos {
-    max-width: 100%;
-  }
 }
 div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#produtos h2 {
   margin: 0 0 1.25rem 0;
@@ -615,11 +625,6 @@ div.perspective div.ship div.viewport div.container div ul#space.main-content li
   margin: 0 auto;
   margin-right: 0;
 }
-@media (max-width: 1180px) {
-  div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato {
-    max-width: 100%;
-  }
-}
 div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato div.bg-map {
   position: fixed;
   top: 0;
@@ -696,6 +701,11 @@ div.perspective div.ship div.viewport div.container div ul#space.main-content li
 }
 div.perspective div.ship div.viewport div.container div ul#space.main-content li.section div#contato div.form .modalForm form#email_form div input[type=submit]:hover {
   transform: scale(0.9);
+}
+@media screen and (max-width: 500px) {
+  div.perspective div.ship div.viewport div.container div ul#space.main-content div#produtos, div.perspective div.ship div.viewport div.container div ul#space.main-content div#contato {
+    max-width: 100vw !important;
+  }
 }
 div.perspective div.ship div.containerList {
   display: flex;

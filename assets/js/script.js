@@ -272,3 +272,19 @@ $(document).ready(function () {
 
 
 });
+
+
+//astronalta
+$(document).ready(function() {
+  // var container = $('#home .homeBanner');
+  var astronaut = $('.astronaut');
+  
+  // Função para animação em loop
+  function animateAstronaut() {
+    astronaut.animate({ top: '-=10px' }, 1000)
+             .animate({ top: '+=10px' }, 1000, animateAstronaut);
+  }
+
+  // Iniciar a animação em loop
+  animateAstronaut();
+});
