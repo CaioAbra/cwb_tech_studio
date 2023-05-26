@@ -143,7 +143,6 @@
                                             <p>Somos uma start-up totalmente digital e não temos endereço físico.</p>
                                             <p>Envie-nos uma mensagem falando um pouco sobre seu projeto.</p>
 
-
                                             <form method="post" id="email_form">
                                                 <div>
                                                     <label for="name">Nome:</label>
@@ -151,22 +150,7 @@
                                                 </div>
 
                                                 <div>
-                                                    <label for="email">E-mail:</label>
-                                                    <input type="email" id="email" name="text">
-                                                </div>
-
-                                                <div>
                                                     <p>Para qual produto você deseja informações?</p>
-                                                </div>
-
-                                                <div>
-                                                    <input type="checkbox" id="bots" name="extra_bots" value="Bots">
-                                                    <label for="bots">Bots</label>
-                                                </div>
-
-                                                <div>
-                                                    <input type="checkbox" id="games" name="extra_games" value="Games">
-                                                    <label for="games">Games</label>
                                                 </div>
 
                                                 <div>
@@ -193,10 +177,6 @@
                                                     <input id="submit_form" type="submit" value="Enviar">
                                                 </div>
                                             </form>
-
-
-
-
                                         </div>
                                     </div>
                                 </div>

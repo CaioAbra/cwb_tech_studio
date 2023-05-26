@@ -182,7 +182,6 @@ $(document).ready(function () {
   }
 });
 
-
 //estrelas de fundo
 $(document).ready(function () {
   var numEstrelas = 200; // Número total de estrelas
@@ -228,7 +227,6 @@ $(document).ready(function () {
   }
 
 });
-
 
 //efeito fechar
 $(document).ready(function () {
@@ -280,7 +278,6 @@ $(document).ready(function () {
   });
 });
 
-
 //astronalta
 $(document).ready(function () {
   // var container = $('#home .homeBanner');
@@ -294,4 +291,81 @@ $(document).ready(function () {
 
   // Iniciar a animação em loop
   animateAstronaut();
+});
+
+//formulario
+// $(document).ready(function () {
+//   $('#email_form').submit(function (event) {
+//     event.preventDefault(); // Impede o envio padrão do formulário
+
+//     // Recupera os valores do formulário
+//     var nome = $('#fname').val();
+//     var produto = '';
+
+//     // Verifica quais checkboxes estão selecionados
+//     if ($('#app').is(':checked')) {
+//       produto += 'Aplicativos (Android/iOS) ';
+//     }
+//     if ($('#website').is(':checked')) {
+//       produto += 'Website ';
+//     }
+//     if ($('#e-commerce').is(':checked')) {
+//       produto += 'E-commerce ';
+//     }
+
+//     var mensagem = $('#message').val();
+
+//     // Gera a URL para abrir o WhatsApp com a mensagem pré-preenchida
+//     var url = 'https://wa.me/5511998479359?text=';
+//     var mensagemWhatsApp = 'Nome: ' + nome + '\n' +
+//       'Produto: ' + produto + '\n' +
+//       'Mensagem: ' + mensagem;
+
+//     // Codifica a mensagem para uso na URL
+//     mensagemWhatsApp = encodeURIComponent(mensagemWhatsApp);
+
+//     // Redireciona para a URL do WhatsApp
+//     window.location.href = url + mensagemWhatsApp;
+//   });
+// });
+
+$(document).ready(function () {
+  $('#email_form').submit(function (event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+
+    // Recupera os valores do formulário
+    var nome = $('#fname').val();
+    var produtos = [];
+
+    // Verifica quais checkboxes estão selecionados
+    if ($('#app').is(':checked')) {
+      produtos.push('Aplicativos (Android/iOS)');
+    }
+    if ($('#website').is(':checked')) {
+      produtos.push('Website');
+    }
+    if ($('#e-commerce').is(':checked')) {
+      produtos.push('E-commerce');
+    }
+
+    var mensagem = $('#message').val();
+
+    // Gera a URL para abrir o WhatsApp com a mensagem pré-preenchida
+    var url = 'https://wa.me/5545999689739?text=';
+
+    var mensagemWhatsApp = 'Nome: ' + nome + '.\n';
+
+    // Adiciona os produtos selecionados à mensagem
+    if (produtos.length > 0) {
+      mensagemWhatsApp += 'Produtos: ' + produtos.join(', ') + '.\n';
+    }
+
+    mensagemWhatsApp += 'Mensagem: ' + mensagem;
+
+    // Codifica a mensagem para uso na URL
+    mensagemWhatsApp = encodeURIComponent(mensagemWhatsApp);
+
+    // Redireciona para a URL do WhatsApp
+    window.location.href = url + mensagemWhatsApp;
+  });
 });
