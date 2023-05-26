@@ -103,78 +103,85 @@ $(document).ready(function () {
 $(document).ready(function () {
   var itemWidth = $(".carousel-items .item").outerWidth(true);
   var itemCount = $(".carousel-items .item").length;
+  var windowWidth = $(window).width();
   var visibleItems = 3; // Número de itens visíveis
   var responsiveThreshold1 = 500; // Limite de largura para dispositivos até 500px
   var responsiveThreshold2 = 768; // Limite de largura para dispositivos de 501px a 767px
 
-  $(".carousel-items").width(itemWidth * itemCount);
+  if (windowWidth > responsiveThreshold1) {
+    $('.carousel .carousel-items .item').addClass('active');
+  } else {
 
-  function moveCarousel() {
-    var currentPosition = parseInt($(".carousel-items").css("left"));
-    var newPosition;
-
-    $(".carousel-items").animate(
-      {
-        left: currentPosition - itemWidth,
-      },
-      500,
-      function () {
-        $(".carousel-items .item:first").appendTo(".carousel-items");
-        $(".carousel-items").css("left", 0);
-        updateActiveItem();
-      }
-    );
-  }
-
-  function updateActiveItem() {
-    var activeItem = Math.ceil(visibleItems / 2);
-
-    $(".carousel-items .item").removeClass("active");
-    $(".carousel-items .item:nth-child(" + activeItem + ")").addClass("active");
-  }
-
-  function adjustCarousel() {
-    var windowWidth = $(window).width();
-
-    if (windowWidth <= responsiveThreshold1) {
-      visibleItems = 1;
-    } else if (windowWidth <= responsiveThreshold2) {
-      visibleItems = 2;
-    } else {
-      visibleItems = 3;
-    }
-
-    itemWidth = $(".carousel-items .item").outerWidth(true);
     $(".carousel-items").width(itemWidth * itemCount);
 
-    var currentPosition = parseInt($(".carousel-items").css("left"));
-    var newPosition = -itemWidth * (visibleItems - 1);
+    function moveCarousel() {
+      var currentPosition = parseInt($(".carousel-items").css("left"));
+      var newPosition;
 
-    if (currentPosition < newPosition) {
-      $(".carousel-items").css("left", newPosition);
+      $(".carousel-items").animate(
+        {
+          left: currentPosition - itemWidth,
+        },
+        500,
+        function () {
+          $(".carousel-items .item:first").appendTo(".carousel-items");
+          $(".carousel-items").css("left", 0);
+          updateActiveItem();
+        }
+      );
     }
 
-    updateActiveItem();
-  }
+    function updateActiveItem() {
+      var activeItem = Math.ceil(visibleItems / 2);
 
-  adjustCarousel();
+      $(".carousel-items .item").removeClass("active");
+      $(".carousel-items .item:nth-child(" + activeItem + ")").addClass("active");
+    }
 
-  $(window).resize(function () {
-    adjustCarousel();
-  });
+    function adjustCarousel() {
 
-  $(".slider-prev").click(function () {
-    $(".carousel-items .item:last").prependTo(".carousel-items");
-    $(".carousel-items").css("left", -itemWidth);
-    $(".carousel-items").animate({ left: 0 }, 500, function () {
+
+      if (windowWidth <= responsiveThreshold1) {
+        visibleItems = 1;
+      } else if (windowWidth <= responsiveThreshold2) {
+        visibleItems = 2;
+      } else {
+        visibleItems = 3;
+      }
+
+      itemWidth = $(".carousel-items .item").outerWidth(true);
+      $(".carousel-items").width(itemWidth * itemCount);
+
+      var currentPosition = parseInt($(".carousel-items").css("left"));
+      var newPosition = -itemWidth * (visibleItems - 1);
+
+      if (currentPosition < newPosition) {
+        $(".carousel-items").css("left", newPosition);
+      }
+
       updateActiveItem();
-    });
-  });
+    }
 
-  $(".slider-next").click(function () {
-    moveCarousel();
-  });
+    adjustCarousel();
+
+    $(window).resize(function () {
+      adjustCarousel();
+    });
+
+    $(".slider-prev").click(function () {
+      $(".carousel-items .item:last").prependTo(".carousel-items");
+      $(".carousel-items").css("left", -itemWidth);
+      $(".carousel-items").animate({ left: 0 }, 500, function () {
+        updateActiveItem();
+      });
+    });
+
+    $(".slider-next").click(function () {
+      moveCarousel();
+    });
+  }
 });
+
 
 //estrelas de fundo
 $(document).ready(function () {
@@ -222,6 +229,8 @@ $(document).ready(function () {
 
 });
 
+
+//efeito fechar
 $(document).ready(function () {
   $(".menu-toggle").on('click', function () {
     if (!$(".viewport").hasClass("miniatura")) {
@@ -269,20 +278,18 @@ $(document).ready(function () {
       $('.viewport.miniatura').removeAttr("style");
     }
   });
-
-
 });
 
 
 //astronalta
-$(document).ready(function() {
+$(document).ready(function () {
   // var container = $('#home .homeBanner');
   var astronaut = $('.astronaut');
-  
+
   // Função para animação em loop
   function animateAstronaut() {
     astronaut.animate({ top: '-=10px' }, 1000)
-             .animate({ top: '+=10px' }, 1000, animateAstronaut);
+      .animate({ top: '+=10px' }, 1000, animateAstronaut);
   }
 
   // Iniciar a animação em loop

@@ -451,6 +451,11 @@ div.perspective {
                                                     color: #2653c4;
                                                     cursor: pointer;
                                                 }
+
+                                                &:last-child {
+                                                    margin-right: auto !important;
+                                                    margin-left: auto !important;
+                                                }
                                             }
 
                                             h3 {
@@ -521,6 +526,7 @@ div.perspective {
                                                     div.description-container {
                                                         column-count: 2;
                                                         column-gap: 0;
+                                                        display: inline-block;
                                                     }
 
                                                     p.description {
@@ -531,10 +537,15 @@ div.perspective {
                                                 }
 
                                                 .active {
-                                                    transform: scale(1.2);
+                                                    transform: scale(1.1);
 
                                                     p.description {
                                                         display: block;
+                                                    }
+
+
+                                                    @media screen and (min-width:600px) {
+                                                        transform: scale(1);
                                                     }
                                                 }
                                             }
@@ -555,6 +566,10 @@ div.perspective {
                                                 svg {
                                                     width: 1.25rem;
                                                     fill: #fff;
+                                                }
+
+                                                @media screen and (min-width: 500px) {
+                                                    display: none !important;
                                                 }
                                             }
 
@@ -591,11 +606,11 @@ div.perspective {
 
                                             @media screen and (min-width: 1000px) {
                                                 .carousel-items {
-                                                    min-height: 50vh;
+                                                    min-height: 42vh;
 
                                                     .item {
-                                                        flex: 0 0 33.33%;
-                                                        max-width: 33.33%;
+                                                        flex: 0 0 calc(100%/2);
+                                                        max-width: calc(100%/2);
                                                     }
                                                 }
                                             }

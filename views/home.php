@@ -64,13 +64,8 @@
                                     </div>
                                     <div class="homeOptions">
                                         <a>
-                                            <h3>Games</h3>
-                                            <p>Games 2D, 3D, games NFT, games em pixel art e muito mais.</p>
-                                        </a>
-
-                                        <a>
-                                            <h3>Bots</h3>
-                                            <p>Web Scraping, bots de automação, chat bots, bots NFT e muito mais.</p>
+                                            <h3>Websites</h3>
+                                            <p>Landing pages e e-commerces.</p>
                                         </a>
 
                                         <a>
@@ -88,12 +83,6 @@
                                     <div class="carousel">
                                         <div class="carousel-items">
                                             <div class="item">
-                                                <img src="./assets/img/game-console.png" alt="Jogos">
-                                                <h3>Desenvolvimento de games</h3>
-                                                <p class="description">- Unity</p>
-                                                <p class="description">- Godot</p>
-                                            </div>
-                                            <div class="item">
                                                 <img src="./assets/img/appdevelopment.png" alt="Apps">
                                                 <h3>Desenvolvimento de Apps</h3>
                                                 <div class="description-container">
@@ -104,29 +93,20 @@
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <img src="./assets/img/bot.png" alt="Bots">
-                                                <h3>Desenvolvimento de Bots</h3>
-                                                <div class="description-container">
-                                                    <p class="description">- C#</p>
-                                                    <p class="description">- Python</p>
-                                                    <p class="description">- NodeJS</p>
-                                                    <p class="description">- Bots Discord</p>
-                                                </div>
-                                            </div>
-                                            <div class="item">
-                                                <img src="assets/img/shopping-online.png" alt="ecommerce">
+                                                <img src="./assets/img/shopping-online.png" alt="Jogos">
                                                 <h3>Websites</h3>
                                                 <p class="description">- Landing Page</p>
                                                 <p class="description">- WooCommerce</p>
                                             </div>
+
                                         </div>
 
                                         <div class="slider-prev">
                                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                                                 <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
                                                     <path d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29
-                                                c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180
-                                                c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z">
+        c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180
+        c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z">
                                                     </path>
                                                 </g>
                                             </svg>
@@ -140,6 +120,7 @@
                                             </svg>
                                         </div>
                                     </div>
+
                                 </div>
                             </li>
 
@@ -147,7 +128,7 @@
                                 <div id="sobreNos">
                                     <div class="efeitoSobreNos">
                                         <h2>
-                                            Start-up cooperativa focada em desenvolvimento de aplicativos, bots e games.
+                                            Startup cooperativa de desenvolvimento web especializada em landing pages de alto impacto.
                                         </h2>
                                     </div>
                                 </div>
